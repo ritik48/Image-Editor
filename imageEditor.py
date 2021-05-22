@@ -204,7 +204,7 @@ class ImageEditor(tk.Tk):
 
         exit_window = tk.Button(self.image_editor_window, image=power_off_icon, compound="left",
                                 text="Exit", font="lucida 9 bold", foreground='white', background="black",
-                                command=exit, padx=12, cursor="hand2")
+                                command=self.exit_window, padx=12, cursor="hand2")
         exit_window.bind("<Enter>", lambda e: mouse_hover(exit_window))
         exit_window.bind("<Leave>", lambda e: mouse_not_hover(exit_window))
         exit_window.place(x=1418, y=640)
@@ -699,6 +699,9 @@ class ImageEditor(tk.Tk):
             self.save_b.configure(state="normal")
         else:
             self.save_b.configure(state='disable')
+
+    def exit_window(self):
+        self.destroy()
 
 
 def mouse_not_hover(button, color=None):
